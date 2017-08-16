@@ -1,0 +1,21 @@
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="form-group col-md-4">
+      <label for="" class="sr-only">Filter</label>
+      <input name="name" type="text" class="form-control" [(ngModel)]="name" placeholder="Filter">
+    </div>
+    <button type="submit" class="btn btn-default" (click)="sortLower()">Price<span class="glyphicon glyphicon-arrow-up"></span></button>
+    <button type="submit" class="btn btn-default" (click)="sortHigher()">Price<span class="glyphicon glyphicon-arrow-down"></span></button>
+  </div>
+  <div class="row">
+    <div class="col-md-3 product" *ngFor="let product of products | filter: name">
+      <a [routerLink]="['/product', product.id]" [queryParams]="{ filterBy: name }">
+        <img class="img-thumbnail" alt="{{product.name}}" src="assets/images/{{product.image}}" style="width: 140px; height: 140px;">
+      </a>
+      <h2>{{product.name}}</h2>
+      <p>Price: {{product.price}} $</p>
+      <button class="btn btn-default" (click)="navigateService.goToBuyPage(product.id, name)">Purchase</button>
+    </div>
+  </div>
+</div> <!-- /container -->

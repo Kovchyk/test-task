@@ -1,0 +1,28 @@
+<div class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <ul class="nav navbar-nav" [hidden]="!authService.isLoggedIn()">
+        <li routerLinkActive="active"><a [routerLink]="['/product']">Products</a></li>
+        <li routerLinkActive="active"><a routerLink="/cart">Cart <span>{{cartService.productsArray.length}}</span></a></li>
+      </ul>
+    </div>
+    <div class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right" role="form" #authForm="ngForm" novalidate>
+        <div class="form-group">
+          <input type="email" name="login" value="" placeholder="Email" class="form-control" ngModel required email>
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" value="" placeholder="Password" class="form-control" ngModel required>
+        </div>
+        <button type="submit" [disabled]="authForm.invalid" type="button" (click)="authService.islogin()" class="btn btn-success">{{authService.loginButtonValue}}</button>
+      </form>
+    </div><!--/.navbar-collapse -->
+  </div>
+</div>
+<router-outlet></router-outlet>

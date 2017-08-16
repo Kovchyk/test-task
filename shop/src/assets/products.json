@@ -1,0 +1,39 @@
+[   
+    {
+        "id": 1,
+        "image": "fridge.jpg",
+        "name": "Fridge",
+        "price": 620.0
+    },
+    {
+        "id": 2,
+        "image": "asus.jpg",
+        "name": "Asus",
+        "price": 145.75
+    },
+    {
+        "id": 3,
+        "image": "acer.jpg",
+        "name": "Acer",
+        "price": 174.25
+    },
+    {
+        "id": 4,
+        "image": "asus123.jpg",
+        "name": "Asus 123",
+        "price": 250.30
+    },
+    {
+        "id": 5,
+        "image": "acerx251.jpg",
+        "name": "Acer x251",
+        "price": 450.44
+    },
+    {
+        "id": 6,
+        "image": "hp.jpg",
+        "name": "HP",
+        "price": 525.65
+    }
+
+]

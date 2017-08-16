@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 product">
+            <img class="img-thumbnail" alt="{{product?.name}}" src="assets/images/{{product?.image}}" style="width: 140px; height: 140px;">
+            <h2>{{product?.name}}</h2>
+            <p>Price: {{product?.price}} $</p>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input name="amount" id="amount" type="text" class="form-control" value="1" [(ngModel)]="amount" #productAmount="ngModel" required pattern="^([1-9][0-9]?|99)$">
+            </div>
+            <div [hidden]="productAmount.valid" class="alert alert-danger">
+                    Enter a value from 1 to 99.
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" maxlength="1000" name="comment" value="" rows="5" id="comment" [(ngModel)]="comment"></textarea>
+            </div>
+            <button class="btn btn-default" [disabled]="productAmount.invalid" (click)="addProduct()">Add to cart</button>
+        </div>
+    </div>
+</div> <!-- /container -->

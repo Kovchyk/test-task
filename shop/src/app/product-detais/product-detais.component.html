@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 product">
+            <a routerLink="/product/{{product?.id}}">
+                <img class="img-thumbnail" data-src="holder.js/140x140" alt="{{product?.name}}" src="assets/images/{{product?.image}}" style="width: 140px; height: 140px;">
+            </a>
+            <h2>{{product?.name}}</h2>
+            <p>Price: {{product?.price}} $</p>
+            <button type="button" class="btn btn-default" (click)="navigateService.goToBuyPage(id)">Purchase</button>
+            <button type="button" class="btn btn-default" (click)="navigateService.goToProducts()">Go back</button>
+        </div>
+    </div>
+</div> <!-- /container -->

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 product" *ngFor="let product of cartService.productsArray">
+            <img class="img-thumbnail" data-src="holder.js/140x140" alt="{{product.name}}" src="assets/images/{{product.image}}" style="width: 140px; height: 140px;">
+            <h2>{{product.name}}</h2>
+            <p>Price: {{product.price}} $</p>
+            <p>Sum: {{product.price * product.amount}} $</p>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input name="amount" id="amount" type="text" class="form-control" [value]="product.amount" (change)="countTotalSum()" [(ngModel)]="product.amount" #amount="ngModel" required pattern="^([1-9][0-9]?|99)$">
+            </div>
+            <div [hidden]="amount.valid" class="alert alert-danger">
+                Enter a value from 1 to 99.
+            </div>
+            <button type="button" class="btn btn-danger" (click)="delete(product.id)"><span class="glyphicon glyphicon-trash"></span>Delete</button>
+        </div>
+    </div>
+    <div class="row" *ngIf="cartService.productsArray.length">
+        <button class="btn btn-default" (click)="clear()">Clear</button>
+        <button class="btn btn-default" (click)="makeOrder()">Order</button>
+        <span>Total: {{totalSum}} $</span>
+    </div>
+    <div class="row" *ngIf="!cartService.productsArray.length">
+        <h1>Your cart is empty.</h1>
+        <button type="button" class="btn btn-default" (click)="navigateService.goToProducts()">Go to products</button>
+    </div>
+    <div class="row" *ngIf="orderSuccess && cartService.productsArray.length">
+        <h1 class="text-success">Your order was successfully fulfilled!</h1>
+    </div>
+</div> <!-- /container -->
