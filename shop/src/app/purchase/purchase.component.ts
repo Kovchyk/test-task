@@ -21,11 +21,27 @@ export class PurchaseComponent implements OnInit {
   product;
   amount: number = 1;
   comment: string = "";
-  
+
   addProduct() {
     this.product.amount = +this.amount;
-    this.product.comment = this.comment;   
-    this.cartService.productsArray.push(this.product);
+    this.product.comment = this.comment;  
+
+    if (this.cartService.productsArray.length) {
+
+      this.cartService.productsArray.forEach((product, index) => {
+        if (product.id === this.product.id) {
+          product.amount += +this.amount;
+        } 
+        return;
+      });
+
+      if (!this.cartService.productsArray.some(product => product.id === this.product.id)) {
+        this.cartService.productsArray.push(this.product);
+      }
+    } else {
+      this.cartService.productsArray.push(this.product);
+    }
+    
     this.navigateService.goToProducts();
   }
 
