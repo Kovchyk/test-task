@@ -38,7 +38,7 @@ export class CartComponent implements OnInit {
     } else {
       this.orderSuccess = false;
     }
-    
+    console.log(this.cartService.productsArray);
   }
 
 
@@ -49,7 +49,8 @@ export class CartComponent implements OnInit {
   countTotalSum() {
     this.totalSum = 0;
     this.cartService.productsArray.forEach(element => {
-      this.totalSum += (element.price * +element.amount);
+      element.amount = parseInt(element.amount);
+      this.totalSum += (element.price * element.amount);
     });
   }
 

@@ -12,7 +12,7 @@ export class FilterPipe implements PipeTransform {
     }
 
     return name 
-    ? products.filter(item => item.name.toLowerCase().indexOf(name) !== -1)
+    ? products.filter(item => item.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
     : products;
   }
 
