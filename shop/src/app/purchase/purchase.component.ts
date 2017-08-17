@@ -30,6 +30,7 @@ export class PurchaseComponent implements OnInit {
 
       this.cartService.productsArray.forEach((product, index) => {
         if (product.id === this.product.id) {
+          product.amount = parseInt(product.amount);
           product.amount += +this.amount;
         } 
         return;
