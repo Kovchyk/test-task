@@ -1,28 +1,38 @@
-# Shop
+Создать клиентскую часть интернет магазина со следующим функционалом
+1) Авторизация
+2) Список товаров
+3) Страница товара
+4) Корзина
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.4.
 
-## Development server
+1. Форма авторизации.
+Форма содержит 2 обязательных поля Email и Password и кнопку Login.
+Email- валидируется на содержание эл.ящика
+Password - не пустое поле
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+2. После успешной авторизации пользователь попадает на страницу продуктов (продукты должны находиться в json, который подружается).
+На форме доступен быстрый поиск, сортировка по цене.
+Каждый продукт состоит из Фото, Названия, Цены и кнопки купить
+По нажатию на Купить - показываем окно с формой покупки с полями:
+ Цена - только чтение, 
+Количество - целочисленное поле от 1 до 99, 
+Комментарий - до 1000 символов,
+Кнопка купить
 
-## Code scaffolding
+3. По нажатию на кнопку Корзина в Шапке странице - открыть корзину со списком всех купленных товаров:
+-Фото товара
+-Название
+-Количество (редактируемое целочисленное поле от 1 до 99) 
+-Цена
+-Сумма
+-Удалить
+-Внизу списка купленных товаров кнопки
+-Очистить - удалить все товары из корзины 
+-Купить - Выдать сообщение об успешном оформлении заказа и очистить корзину
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
 
-## Build
+4. По нажатию на кнопку Выйти - Разлогинься.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+По нажатию на фото товара - открыть страницу с полной информацией о товаре и кнопками Купить и Назад
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Тестовое реализовать на ангуляре 2. Дизайн может быть не сложным, но чтобы приятен для восприятия. Верстка с использованием HTML5 и CSS3.
