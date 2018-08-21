@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
-import { NavigateService } from "./navigate.service";
+import { NavigateService } from './navigate.service';
 
 @Injectable()
 export class AuthService {
 
   constructor(private navigateService: NavigateService) { }
   login: boolean = false;
-  loginButtonValue: string = "Login";
+  loginButtonValue: string = 'Login';
 
   islogin() {
     this.login = !this.login;
 
     if (this.login) {
-      this.loginButtonValue = "LogOut";
+      this.loginButtonValue = 'LogOut';
       this.navigateService.goToProducts();
     } else {
-      this.loginButtonValue = "Login";
+      this.loginButtonValue = 'Login';
       this.navigateService.goToWelcome();
-    } 
-    
+    }
+
   }
 
   isLoggedIn(): boolean {

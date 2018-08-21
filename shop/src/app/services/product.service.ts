@@ -1,14 +1,12 @@
-import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
-import "rxjs/add/operator/map";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ProductService {
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   getProducts() {
-    return this.http.get("assets/products.json").map(res => res.json());
+    return this.http.get('assets/products.json');
   }
-  
 }

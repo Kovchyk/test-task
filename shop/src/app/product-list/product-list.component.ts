@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from "../services/product.service";
-import { NavigateService } from "../services/navigate.service";
-import { IProduct } from "../product";
+import { ProductService } from '../services/product.service';
+import { NavigateService } from '../services/navigate.service';
 
 @Component({
-  selector: "app-product-list",
-  templateUrl: "./product-list.component.html",
-  styleUrls: ["./product-list.component.css"]
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit{
+export class ProductListComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private navigateService: NavigateService,
               private route: ActivatedRoute) { }
 
-  products: IProduct[];
-  name: string = "";
+  products;
+  name = '';
+  test;
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(products => {
+    this.productService.getProducts().subscribe((products: any) => {
       this.products = products;
     });
-    
+
     this.route.queryParams.subscribe(params => {
-      this.name = params["filterBy"] || "";
+      this.name = params['filterBy'] || '';
     });
 
   }

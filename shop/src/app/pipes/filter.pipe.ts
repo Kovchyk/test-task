@@ -1,7 +1,7 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: "filter",
+  name: 'filter',
   pure: false
 })
 export class FilterPipe implements PipeTransform {
@@ -11,7 +11,7 @@ export class FilterPipe implements PipeTransform {
       return null;
     }
 
-    return name 
+    return name
     ? products.filter(item => item.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
     : products;
   }
